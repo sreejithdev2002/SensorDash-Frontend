@@ -2,6 +2,7 @@ import { useState } from "react";
 import axiosInstance from "../axios/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import signupImage from "../assets/Signup.svg"; // Replace with your actual image path
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -15,9 +16,10 @@ export default function Signup() {
     try {
       await axiosInstance.post("/api/auth/signup", { name, email });
       localStorage.setItem("SensorDataEmail", email);
-      alert("Signup Successful. OTP sent to your Email.");
+      toast.success("Signup Successful. OTP sent to your Email.");
       navigate("/verify-otp");
     } catch (err) {
+      toast.error("Signup failed. Try again");
       setError("Signup failed. Try again.");
     }
   };
@@ -41,7 +43,7 @@ export default function Signup() {
           </h2>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
           <form onSubmit={handleSignup}>
-          <label className="block mb-2 text-gray-900">Username</label>
+            <label className="block mb-2 text-gray-900">Username</label>
             <input
               type="text"
               value={name}

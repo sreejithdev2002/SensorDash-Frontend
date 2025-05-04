@@ -5,6 +5,8 @@ import DashboardLayout from "./components/Layout/DashboardLayout";
 import Signup from "./pages/Signup";
 import VerifyOtp from "./pages/VerifyOtp";
 import ProtectedRoute from "./components/Layout/ProtectedRoute";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
       </Routes>
+      <ToastContainer />
     </Router>
   );
 }

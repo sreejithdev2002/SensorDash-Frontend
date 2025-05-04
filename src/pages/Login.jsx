@@ -2,6 +2,7 @@ import { useState } from "react";
 import axiosInstance from "../axios/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import loginImage from "../assets/Login.svg"; // Save your image in src/assets
+import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -13,10 +14,11 @@ export default function Login() {
     try {
       const response = await axiosInstance.post("/api/auth/login", { email });
       localStorage.setItem("SensorDatatoken", response.data.token);
-      alert("Login Successful");
+      toast.success("Login Successful")
       navigate("/");
     } catch (err) {
-      setError("Invalid email or password.");
+      toast.error("Invalid email")
+      setError("Invalid email");
     }
   };
 

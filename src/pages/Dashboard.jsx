@@ -24,6 +24,7 @@ import {
 import "@xyflow/react/dist/style.css";
 import axiosInstance from "../axios/axiosInstance";
 import CustomTooltip from "../components/CustomTooltip";
+import { toast } from "react-toastify";
 
 export default function Dashboard() {
   const [chartData, setChartData] = useState([]);
@@ -86,8 +87,9 @@ export default function Dashboard() {
         edges,
       };
       await axiosInstance.post("/api/flow/save", { elements });
-      alert("Flowchart saved!");
+      toast.success("Flowchart saved!");
     } catch (err) {
+      toast.error("Error : Flowchart not saved")
       console.error("Error saving flowchart:", err);
     } finally {
       setSaving(false);

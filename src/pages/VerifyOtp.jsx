@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import axiosInstance from "../axios/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import OtpImage from "../assets/Otp.svg"; // Ensure this path is correct
+import { toast } from "react-toastify";
 
 export default function VerifyOtp() {
   const navigate = useNavigate();
@@ -52,9 +53,10 @@ export default function VerifyOtp() {
 
       localStorage.setItem("SensorDatatoken", response.data.token);
 
-      alert("OTP Verified Successfully!");
+      toast.success("OTP Verified Successfully!");
       navigate("/");
     } catch (err) {
+      toast.error("Invalid or expired OTP");
       setError("Invalid or expired OTP.");
     }
   };
