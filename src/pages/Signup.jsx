@@ -25,7 +25,6 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-        {/* Illustration */}
         <div className="hidden md:flex items-center justify-center bg-indigo-50 p-6">
           <img
             src={signupImage}

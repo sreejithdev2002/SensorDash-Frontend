@@ -31,7 +31,7 @@ export default function Sidebar() {
   return (
     <div>
       {/* Sidebar for desktop */}
-      <div className="hidden md:flex flex-col justify-between w-64 h-screen bg-[#1e1e24] text-[#fff8f0] p-6">
+      <div className="hidden md:flex flex-col justify-between md:w-52 lg:w-64 h-screen bg-[#1e1e24] text-[#fff8f0] p-6">
         <div>
           <h2 className="text-2xl text-center font-bold mb-8">SensorDash</h2>
           <ul className="space-y-4">
@@ -103,7 +103,7 @@ export default function Sidebar() {
         </div>
         <button
           onClick={handleLogout}
-          className="mt-8 flex justify-center items-center gap-2 p-2 bg-[#92140c] text-white rounded hover:bg-[#81130b] transition-all"
+          className="mt-8 flex justify-center items-center gap-2 p-2 bg-[#92140c] text-white rounded hover:bg-[#81130b] transition-all cursor-pointer"
         >
           <FaSignOutAlt /> Logout
         </button>
@@ -213,7 +213,7 @@ export default function Sidebar() {
               handleLogout();
               handleLinkClick();
             }}
-            className="w-full mt-6 flex items-center justify-center gap-2 p-2 bg-[#92140c] text-white rounded hover:bg-red-700 transition-all"
+            className="w-full mt-6 flex items-center justify-center gap-2 p-2 bg-[#92140c] text-white rounded hover:bg-red-700 transition-all cursor-pointer"
           >
             <FaSignOutAlt /> Logout
           </button>

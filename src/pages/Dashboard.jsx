@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import {
   LineChart,
   Line,
@@ -17,7 +16,6 @@ import {
   ReactFlow,
   Background,
   Controls,
-  MiniMap,
   addEdge,
   useEdgesState,
   useNodesState,
@@ -41,7 +39,6 @@ export default function Dashboard() {
 
   const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const startDataStream = async () => {
     await axiosInstance.post("/api/data/start");
@@ -183,7 +180,7 @@ export default function Dashboard() {
       {/* ========== Chart Section ========== */}
       <div className="bg-white rounded-xl p-6 shadow-md space-y-6">
         <div className="flex justify-between items-center">
-          <h2 className="text-lg sm:text-2xl md:text-4xl font-semibold text-[#111d4a]">
+          <h2 className="text-lg sm:text-2xl lg:text-4xl font-semibold text-[#111d4a]">
             Sensor Data
           </h2>
           <div className="space-x-3">
@@ -234,7 +231,6 @@ export default function Dashboard() {
                     />
 
                     <YAxis tick={{ fontSize: 12, fill: "#333" }} />
-                    {/* <Tooltip /> */}
                     <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="value" stroke="#8884d8" />
                   </LineChart>
@@ -262,7 +258,6 @@ export default function Dashboard() {
                     />
 
                     <YAxis tick={{ fontSize: 12, fill: "#333" }} />
-                    {/* <Tooltip /> */}
                     <Tooltip content={<CustomTooltip />} />
                     <Bar dataKey="value" fill="#82ca9d" />
                   </BarChart>
@@ -296,7 +291,6 @@ export default function Dashboard() {
 
                   <YAxis tick={{ fontSize: 12, fill: "#333" }} />
                   <CartesianGrid strokeDasharray="3 3" />
-                  {/* <Tooltip /> */}
                   <Tooltip content={<CustomTooltip />} />
                   <Area
                     type="monotone"
@@ -315,31 +309,30 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* Your chart components here */}
       </div>
 
       {/* ========== Flowchart Section ========== */}
       <div className="bg-white rounded-xl p-6 shadow-md">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg sm:text-2xl md:text-4xl font-semibold text-[#111d4a]">
+          <h2 className="text-lg sm:text-2xl lg:text-4xl  font-semibold text-[#111d4a]">
             Flow Chart
           </h2>
           <div className="space-x-1 md:space-x-3">
             <button
-              className="text-[10px] sm:text-xs md:text-base px-2 md:px-4 py-2 bg-[#5f5490] text-white rounded"
+              className="text-[10px] sm:text-xs lg:text-sm px-2 md:px-2 py-2 bg-[#5f5490] text-white rounded"
               onClick={handleAddNode}
             >
               Add Node
             </button>
             <button
-              className="text-[10px] sm:text-xs md:text-base px-2 md:px-4 py-2 bg-[#111d4a] text-white rounded"
+              className="text-[10px] sm:text-xs lg:text-sm px-2 md:px-2 py-2 bg-[#111d4a] text-white rounded"
               onClick={saveFlowchart}
               disabled={saving}
             >
               {saving ? "Saving..." : "Save Flowchart"}
             </button>
             <button
-              className="text-[10px] sm:text-xs md:text-base px-2 md:px-4 py-2 bg-[#111d4a] text-white rounded"
+              className="text-[10px] sm:text-xs lg:text-sm px-2 md:px-2 py-2 bg-[#111d4a] text-white rounded"
               onClick={handleLoadFlowcharts}
             >
               Load Flowchart
