@@ -58,7 +58,7 @@ export default function Dashboard() {
 
   const fetchHistoryData = async () => {
     try {
-      const res = await axiosInstance.post("/api/data/history");
+      const res = await axiosInstance.get("/api/data/history");
       if (Array.isArray(res.data)) {
         setChartData(res.data);
       } else {
