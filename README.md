@@ -20,6 +20,7 @@ SensorDash is a real-time IoT dashboard frontend built using **React**, **Tailwi
 
 ```bash
 git clone https://github.com/sreejithdev2002/SensorDash-Frontend.git
+cd SensorDash-Frontend
 ```
 ### 2. Install dependencies
 
